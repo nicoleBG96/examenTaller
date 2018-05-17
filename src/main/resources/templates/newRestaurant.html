@@ -28,6 +28,11 @@
     <select name="city" id="city">
         <option th:each="city : ${cities}" th:value="${city.id}" th:text="${city.nombre}"></option>
     </select>
+    <br/>
+    <p>Nivel Precio:</p>
+    <select name="levelPrice" id="levelPrice">
+        <option th:each="levelPrice : ${levelsPrices}" th:value="${levelPrice.id}" th:text="${levelPrice.description}"></option>
+    </select>
 
     <br/>
 

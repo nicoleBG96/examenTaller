@@ -37,6 +37,14 @@
                 th:selected="(${city.id} == ${rest.city.id})"></option>
     </select>
     <br/>
+    <p>Seleccione Nivel Precio:</p>
+    <select name="levelPrice" id="levelPrice">
+        <option th:each="levelPrice : ${levelsPrices}"
+                th:value="${levelPrice.id}"
+                th:text="${levelPrice.description}"
+                th:selected="(${levelPrice.id} == ${rest.levelPrice.id})"></option>
+    </select>
+    <br/>
     <br/>
     <input type="submit" value="Guardar"></input>
 </form>

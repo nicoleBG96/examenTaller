@@ -2,7 +2,9 @@ package com.ucbcba.taller.controllers;
 
 
 
+import com.ucbcba.taller.entities.City;
 import com.ucbcba.taller.entities.User;
+import com.ucbcba.taller.services.CityService;
 import com.ucbcba.taller.services.SecurityService;
 import com.ucbcba.taller.services.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -23,8 +25,20 @@ public class UserController {
     @Autowired
     private SecurityService securityService;
 
+    @Autowired
+    private CityService cityService;
+
     //@Autowired
     //private UserValidator userValidator;
+
+    @Autowired
+    public void setUserService(UserService userService){this.userService=userService;}
+
+
+    @Autowired
+    public void setCityService(CityService cityService) {
+        this.cityService = cityService;
+    }
 
     @RequestMapping(value = "/registration", method = RequestMethod.GET)
     public String registrationInit(Model model) {
@@ -38,7 +52,7 @@ public class UserController {
         if (bindingResult.hasErrors()) {
             return "registration";
         }
-
+        cityService.saveCity((City) cityService);
         userService.save(user);
         securityService.autologin(user.getUsername(), user.getPasswordConfirm());
         return "redirect:/bienvenidos";

@@ -32,6 +32,10 @@ public class Restaurant {
     @JoinColumn(name="city_id")
     private City city;
 
+    @ManyToOne
+    @JoinColumn(name="levelPrice_id")
+    private LevelPrice levelPrice;
+
 
     public Integer getId() {
         return id;
@@ -80,4 +84,8 @@ public class Restaurant {
     public City getCity(){return city;}
 
     public void setCity(City city){this.city=city;}
+
+    public LevelPrice getLevelPrice(){return levelPrice;}
+
+    public void setLevelPrice(LevelPrice levelPrice){this.levelPrice=levelPrice;}
 }

@@ -1,7 +1,9 @@
 package com.ucbcba.taller.services;
 
+import com.ucbcba.taller.entities.City;
 import com.ucbcba.taller.entities.Role;
 import com.ucbcba.taller.entities.User;
+import com.ucbcba.taller.repositories.CityRepository;
 import com.ucbcba.taller.repositories.RoleRepository;
 import com.ucbcba.taller.repositories.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
